@@ -440,7 +440,7 @@
 		"insert": "lynra.get_distance",
 		"function": "local player = game.Players:FindFirstChild(username) if player and player.Character and player.Character:FindFirstChild('HumanoidRootPart') then local hrp = player.Character.HumanoidRootPart local my_hrp = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart') if my_hrp then return (my_hrp.Position - hrp.Position).Magnitude end end return nil"
 	},
-    ""lynra.dex": {
+    "lynra.dex": {
 		"label": "lynra.dex();",
 		"type": "Method",
 		"description": "Runs Dex Explorer V4 Dark.",
