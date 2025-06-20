@@ -438,8 +438,8 @@
         "type": "Method",
         "description": "Runs Dex explorer.",
         "insert": "lynra.dex"
-    }
-	"lynra.infinite_yield": {
+    },
+    "lynra.infinite_yield": {
         "label": "lynra.infinite_yield();",
         "type": "Method",
         "description": "Runs Infinite Yield.",
