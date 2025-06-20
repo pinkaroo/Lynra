@@ -433,35 +433,17 @@
         "description": "Calculates the distance between two players.",
         "insert": "lynra.get_distance"
     },
-    "lynra.enable_antilogger": {
-        "label": "lynra.enable_antilogger();",
-        "type": "Method",
-        "description": "Enables Lynra's Anti-Ip-Logger",
-        "insert": "lynra.enable_antilogger"
-    },
-    "lynra.disable_antilogger": {
-        "label": "lynra.disable_antilogger();",
-        "type": "Method",
-        "description": "Disables Lynra's Anti-Ip-Logger",
-        "insert": "lynra.disable_antilogger"
-    },
-    "lynra.enable_httpspy": {
-        "label": "lynra.enable_httpspy();",
-        "type": "Method",
-        "description": "Enables Lynra's HTTP Spy",
-        "insert": "lynra.enable_httpspy"
-    },
-    "lynra.disable_httpspy": {
-        "label": "lynra.disable_httpspy();",
-        "type": "Method",
-        "description": "Disables Lynra's HTTP Spy",
-        "insert": "lynra.disable_httpspy"
-    },
     "lynra.dex": {
         "label": "lynra.dex();",
         "type": "Method",
-        "description": "Runs dex explorer V4 Dark.",
+        "description": "Runs Dex explorer.",
         "insert": "lynra.dex"
+    }
+	"lynra.infinite_yield": {
+        "label": "lynra.infinite_yield();",
+        "type": "Method",
+        "description": "Runs Infinite Yield.",
+        "insert": "lynra.infinite_yield"
     }
 }
 }
