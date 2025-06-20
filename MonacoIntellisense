@@ -392,76 +392,60 @@
   },
   "lynra_library": {
     "lynra.get_player_by_name": {
-        "label": "lynra.get_player_by_name(username);",
-        "type": "Method",
-        "description": "Gets a player by their display name or username.",
-        "insert": "lynra.get_player_by_name"
-    },
-    "lynra.get_hrp": {
-        "label": "lynra.get_hrp(username);",
-        "type": "Method",
-        "description": "Gets the humanoidrootpart of a player.",
-        "insert": "lynra.get_hrp"
-    },
+		"label": "lynra.get_player_by_name(username);",
+		"type": "Method",
+		"description": "Gets a player by their username.",
+		"insert": "lynra.get_player_by_name",
+		"function": "local player = game.Players:FindFirstChild(...[1]) return player or nil"
+	},
+	"lynra.get_hrp": {
+		"label": "lynra.get_hrp(username);",
+		"type": "Method",
+		"description": "Gets the HumanoidRootPart of a player.",
+		"insert": "lynra.get_hrp",
+		"function": "local player = game.Players:FindFirstChild(...[1]) if player and player.Character then return player.Character:FindFirstChild('HumanoidRootPart') end return nil"
+	}
     "lynra.remote_spy": {
         "label": "lynra.remote_spy();",
         "type": "Method",
-        "description": "Runs a remote spy supported by lynra.",
+        "description": "Runs simple spy.",
         "insert": "lynra.remote_spy"
+		"function": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua\"))()"
     },
     "lynra.teleport": {
-        "label": "lynra.teleport(vector3);",
-        "type": "Method",
-        "description": "Teleports the local player to a position",
-        "insert": "lynra.teleport"
-    },
+		"label": "lynra.teleport(vector3);",
+		"type": "Method",
+		"description": "Teleports the local player to a position.",
+		"insert": "lynra.teleport",
+		"function": "local myCharacter = game.Players.LocalPlayer.Character if myCharacter then myCharacter:PivotTo(CFrame.new(vector3)) end"
+	}
     "lynra.is_player_alive": {
-        "label": "lynra.is_player_alive(username);",
-        "type": "Method",
-        "description": "Checks if a player is alive.",
-        "insert": "lynra.is_player_alive"
-    },
+		"label": "lynra.is_player_alive(username);",
+		"type": "Method",
+		"description": "Checks if a player is alive.",
+		"insert": "lynra.is_player_alive",
+		"function": "local player = game.Players:FindFirstChild(username) if player and player.Character and player.Character:FindFirstChildOfClass('Humanoid') then return player.Character:FindFirstChildOfClass('Humanoid').Health > 0 end return false"
+	}
     "lynra.teleport_to_player": {
-        "label": "lynra.teleport_to_player(username);",
-        "type": "Method",
-        "description": "Teleports the local player to the position of the target player.",
-        "insert": "lynra.teleport_to_player"
-    },
+		"label": "lynra.teleport_to_player(username);",
+		"type": "Method",
+		"description": "Teleports the local player to the position of the target player using PivotTo.",
+		"insert": "lynra.teleport_to_player",
+		"function": "local player = game.Players:FindFirstChild(username) if player and player.Character then local targetPivot = player.Character:GetPivot() local myCharacter = game.Players.LocalPlayer.Character if myCharacter then myCharacter:PivotTo(targetPivot) end end"
+	}
     "lynra.get_distance": {
-        "label": "lynra.get_distance(username);",
-        "type": "Method",
-        "description": "Calculates the distance between two players.",
-        "insert": "lynra.get_distance"
-    },
-    "lynra.enable_antilogger": {
-        "label": "lynra.enable_antilogger();",
-        "type": "Method",
-        "description": "Enables Lynra's Anti-Ip-Logger",
-        "insert": "lynra.enable_antilogger"
-    },
-    "lynra.disable_antilogger": {
-        "label": "lynra.disable_antilogger();",
-        "type": "Method",
-        "description": "Disables Lynra's Anti-Ip-Logger",
-        "insert": "lynra.disable_antilogger"
-    },
-    "lynra.enable_httpspy": {
-        "label": "lynra.enable_httpspy();",
-        "type": "Method",
-        "description": "Enables Lynra's HTTP Spy",
-        "insert": "lynra.enable_httpspy"
-    },
-    "lynra.disable_httpspy": {
-        "label": "lynra.disable_httpspy();",
-        "type": "Method",
-        "description": "Disables Lynra's HTTP Spy",
-        "insert": "lynra.disable_httpspy"
-    },
-    "lynra.dex": {
-        "label": "lynra.dex();",
-        "type": "Method",
-        "description": "Runs dex explorer V4 Dark.",
-        "insert": "lynra.dex"
-    }
+		"label": "lynra.get_distance(username);",
+		"type": "Method",
+		"description": "Calculates the distance between two players.",
+		"insert": "lynra.get_distance",
+		"function": "local player = game.Players:FindFirstChild(username) if player and player.Character and player.Character:FindFirstChild('HumanoidRootPart') then local hrp = player.Character.HumanoidRootPart local my_hrp = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart') if my_hrp then return (my_hrp.Position - hrp.Position).Magnitude end end return nil"
+	}
+    ""lynra.dex": {
+		"label": "lynra.dex();",
+		"type": "Method",
+		"description": "Runs Dex Explorer V4 Dark.",
+		"insert": "lynra.dex",
+		"function": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/infyiff/backup/main/dex.lua\"))()"
+	}
 }
 }
