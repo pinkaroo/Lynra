@@ -409,7 +409,7 @@
         "label": "lynra.remote_spy();",
         "type": "Method",
         "description": "Runs simple spy.",
-        "insert": "lynra.remote_spy"
+        "insert": "lynra.remote_spy",
 		"function": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua\"))()"
     },
     "lynra.teleport": {
