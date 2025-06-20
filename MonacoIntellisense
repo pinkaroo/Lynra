@@ -400,13 +400,13 @@
     "lynra.get_hrp": {
         "label": "lynra.get_hrp(username);",
         "type": "Method",
-        "description": "Gets the humanoidrootpart of a player.",
+        "description": "Gets the HumanoidRootPart of a player.",
         "insert": "lynra.get_hrp"
     },
     "lynra.remote_spy": {
         "label": "lynra.remote_spy();",
         "type": "Method",
-        "description": "Runs a remote spy supported by lynra.",
+        "description": "Runs simple spy.",
         "insert": "lynra.remote_spy"
     },
     "lynra.teleport": {
