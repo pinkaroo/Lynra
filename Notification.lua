@@ -7,26 +7,49 @@ return function(title, message, duration)
 		return http_service:GenerateGUID(false)
 	end
 
-	local notif_container = core_gui:FindFirstChild("NotifContainer") or Instance.new("ScreenGui")
-	notif_container.Name = "NotifContainer"
-	notif_container.ResetOnSpawn = false
-	notif_container.IgnoreGuiInset = true
-	notif_container.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	notif_container.Parent = core_gui
+	local notif_container = core_gui:FindFirstChild("NotifContainer")
+	if not notif_container then
+		notif_container = Instance.new("ScreenGui")
+		notif_container.Name = "NotifContainer"
+		notif_container.ResetOnSpawn = false
+		notif_container.IgnoreGuiInset = true
+		notif_container.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		notif_container.Parent = core_gui
+
+		local holder = Instance.new("Frame")
+		holder.Name = "Holder"
+		holder.AnchorPoint = Vector2.new(0.5, 0)
+		holder.Position = UDim2.new(0.5, 0, 0, 20)
+		holder.Size = UDim2.new(0, 220, 1, -40)
+		holder.BackgroundTransparency = 1
+		holder.BorderSizePixel = 0
+		holder.ZIndex = 9
+		holder.Parent = notif_container
+
+		local layout = Instance.new("UIListLayout")
+		layout.Name = "Layout"
+		layout.SortOrder = Enum.SortOrder.LayoutOrder
+		layout.Padding = UDim.new(0, 6)
+		layout.VerticalAlignment = Enum.VerticalAlignment.Top
+		layout.Parent = holder
+	end
+
+	local holder = notif_container:FindFirstChild("Holder")
 
 	duration = duration or 4
 
 	local frame = Instance.new("Frame")
 	frame.Name = guid()
 	frame.AnchorPoint = Vector2.new(0.5, 0)
-	frame.Size = UDim2.new(0, 200, 0, 60)
-	frame.Position = UDim2.new(0.5, 0, 0, 20)
+	frame.Size = UDim2.new(1, 0, 0, 60)
+	frame.Position = UDim2.new(0.5, 0, 0, 0)
 	frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 	frame.BackgroundTransparency = 1
 	frame.BorderSizePixel = 0
 	frame.ZIndex = 10
 	frame.ClipsDescendants = true
-	frame.Parent = notif_container
+	frame.LayoutOrder = -tick()
+	frame.Parent = holder
 
 	local corner = Instance.new("UICorner")
 	corner.Name = guid()
