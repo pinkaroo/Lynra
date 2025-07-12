@@ -391,18 +391,6 @@
       } 
   },
   "lynra_library": {
-    "lynra.get_player_by_name": {
-        "label": "lynra.get_player_by_name(username: string);",
-        "type": "Method",
-        "description": "Gets a player by their username.",
-        "insert": "lynra.get_player_by_name"
-    },
-    "lynra.get_hrp": {
-        "label": "lynra.get_hrp(input: Player | Character | string);",
-        "type": "Method",
-        "description": "Gets the HumanoidRootPart of the given player, character, or username.",
-        "insert": "lynra.get_hrp"
-    },
     "lynra.remote_spy": {
         "label": "lynra.remote_spy();",
         "type": "Method",
@@ -414,24 +402,6 @@
         "type": "Method",
         "description": "Teleports the local player to the specified position.",
         "insert": "lynra.teleport"
-    },
-    "lynra.is_player_alive": {
-        "label": "lynra.is_player_alive(input: Player | Character | string);",
-        "type": "Method",
-        "description": "Checks if the given player, character, or username is alive.",
-        "insert": "lynra.is_player_alive"
-    },
-    "lynra.teleport_to_player": {
-        "label": "lynra.teleport_to_player(input: Player | Character | string);",
-        "type": "Method",
-        "description": "Teleports the local player to the given player, character, or username.",
-        "insert": "lynra.teleport_to_player"
-    },
-    "lynra.get_distance": {
-        "label": "lynra.get_distance(input1: Player | Character | string, input2: Player | Character | string);",
-        "type": "Method",
-        "description": "Calculates the distance between two players, characters, or usernames.",
-        "insert": "lynra.get_distance"
     },
     "lynra.dex": {
         "label": "lynra.dex();",
