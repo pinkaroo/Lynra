@@ -1,6 +1,6 @@
 return function(title, message, duration)
 	local tween_service = game:GetService("TweenService")
-	local core_gui = game:GetService("CoreGui")
+	local core_gui = gethui()
 	local http_service = game:GetService("HttpService")
 
 	local function guid()
