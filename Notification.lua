@@ -1,6 +1,11 @@
 return function(title, message, duration)
 	local tween_service = game:GetService("TweenService")
 	local core_gui = game:GetService("CoreGui")
+	local http_service = game:GetService("HttpService")
+
+	local function guid()
+		return http_service:GenerateGUID(false)
+	end
 
 	local notif_container = core_gui:FindFirstChild("NotifContainer") or Instance.new("ScreenGui")
 	notif_container.Name = "NotifContainer"
@@ -12,6 +17,7 @@ return function(title, message, duration)
 	duration = duration or 4
 
 	local frame = Instance.new("Frame")
+	frame.Name = guid()
 	frame.AnchorPoint = Vector2.new(0.5, 0)
 	frame.Size = UDim2.new(0, 200, 0, 60)
 	frame.Position = UDim2.new(0.5, 0, 0, 20)
@@ -22,9 +28,13 @@ return function(title, message, duration)
 	frame.ClipsDescendants = true
 	frame.Parent = notif_container
 
-	Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 12)
+	local corner = Instance.new("UICorner")
+	corner.Name = guid()
+	corner.CornerRadius = UDim.new(0, 12)
+	corner.Parent = frame
 
 	local padding = Instance.new("UIPadding")
+	padding.Name = guid()
 	padding.PaddingLeft = UDim.new(0, 10)
 	padding.PaddingRight = UDim.new(0, 10)
 	padding.PaddingTop = UDim.new(0, 10)
@@ -32,18 +42,22 @@ return function(title, message, duration)
 	padding.Parent = frame
 
 	local stroke = Instance.new("UIStroke")
+	stroke.Name = guid()
 	stroke.Color = Color3.fromRGB(60, 60, 60)
 	stroke.Thickness = 1
 	stroke.Parent = frame
 
-	local gradient = Instance.new("UIGradient", frame)
+	local gradient = Instance.new("UIGradient")
+	gradient.Name = guid()
 	gradient.Color = ColorSequence.new({
 		ColorSequenceKeypoint.new(0, Color3.fromRGB(35, 35, 35)),
 		ColorSequenceKeypoint.new(1, Color3.fromRGB(25, 25, 25)),
 	})
 	gradient.Rotation = 90
+	gradient.Parent = frame
 
 	local title_label = Instance.new("TextLabel")
+	title_label.Name = guid()
 	title_label.Text = title
 	title_label.Font = Enum.Font.GothamBold
 	title_label.TextSize = 16
@@ -56,6 +70,7 @@ return function(title, message, duration)
 	title_label.Parent = frame
 
 	local msg_label = Instance.new("TextLabel")
+	msg_label.Name = guid()
 	msg_label.Text = message
 	msg_label.Font = Enum.Font.Gotham
 	msg_label.TextSize = 14
@@ -70,6 +85,7 @@ return function(title, message, duration)
 	msg_label.Parent = frame
 
 	local bar = Instance.new("Frame")
+	bar.Name = guid()
 	bar.Size = UDim2.new(1, 0, 0, 3)
 	bar.Position = UDim2.new(0, 0, 1, 2)
 	bar.BackgroundColor3 = Color3.fromRGB(80, 150, 255)
@@ -77,7 +93,10 @@ return function(title, message, duration)
 	bar.ZIndex = 12
 	bar.Parent = frame
 
-	Instance.new("UICorner", bar).CornerRadius = UDim.new(1, 0)
+	local bar_corner = Instance.new("UICorner")
+	bar_corner.Name = guid()
+	bar_corner.CornerRadius = UDim.new(1, 0)
+	bar_corner.Parent = bar
 
 	tween_service:Create(frame, TweenInfo.new(0.3, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
 		BackgroundTransparency = 0
